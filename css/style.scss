@@ -1,0 +1,173 @@
+@import "./modules/index";
+
+html {
+  min-width: 350px;
+  min-height: 600px;
+  background-color: $bold_theme_clr;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  font-family: $main_font;
+  background-color: $bg_clr;
+  min-height: 100vh;
+  background-image: $bg_img_lg;
+  color: $light_theme_clr;
+  //   height: 1000px;
+  background-repeat: no-repeat;
+}
+
+/*  
+            +-+-+-+- header (navbar menu) section -+-+-+-+  
+*/
+
+.header-sec {
+  padding: 1em 2em;
+  background-color: $bold_theme_clr;
+  font-size: 1.125rem;
+  border-radius: 0 0 10px 10px;
+}
+
+.header-sec__nav-bar {
+  display: flex;
+  justify-content: space-between;
+  > ul[class^="nav-bar__list"] {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    a {
+      text-decoration: none;
+      color: $bg_clr;
+    }
+  }
+}
+.nav-bar__list--user-account {
+  flex: 0 1 150px;
+}
+
+/* 
+            +-+-+-+- Log-in/Sign-up form section -+-+-+-+
+*/
+
+.main-sec {
+  padding: 4em 0 3em;
+}
+
+.form-container {
+  position: relative;
+  width: 50vw;
+  margin: 0 auto;
+  background-color: $bg_clr;
+  border: 2px solid $light_theme_clr;
+  border-radius: 10px;
+  padding: 1em;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 4px $black_clr;
+}
+
+.form-container__form--login,
+.form-container__form--sign-up {
+  padding: 1.6em;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  align-items: center;
+  .form__form-input {
+    position: relative;
+    width: 70%;
+    font-size: 1.25em;
+    input,
+    span {
+      color: $fg_clr;
+    }
+    span {
+      position: absolute;
+      pointer-events: none;
+      top: 0;
+      left: 0;
+      transition: all 0.5s ease-in-out;
+    }
+    input {
+      border: 0;
+      border-bottom: 1px solid $dark_inactive_clr;
+      background: transparent;
+      width: 100%;
+      padding: 8px 0 5px 0;
+      &:focus {
+        border: none;
+        outline: none;
+        border-bottom: 1px solid $light_theme_clr;
+      }
+      &:focus + span,
+      &:valid + span {
+        top: -15px;
+        font-size: 0.75em;
+      }
+    }
+    > i {
+      position: absolute;
+      right: 0;
+      padding: 5px 0;
+      cursor: pointer;
+    }
+  }
+}
+.form__form-input--submit {
+  padding: 0.6em;
+  text-transform: uppercase;
+  background-color: $light_theme_clr;
+  border: 0;
+  border-radius: 0.375em;
+  cursor: pointer;
+  width: 70%;
+}
+
+// a[class="input-form"] {
+//   color: unset;
+// }
+
+h1.container__text--error {
+  margin-top: 0;
+  padding-top: 0.67em;
+}
+
+.container__text--error {
+  color: red;
+  text-align: center;
+
+  &:not(h1) {
+    font-size: 1.5rem;
+  }
+}
+
+.form__form-input--profile-pic {
+  input {
+    display: block;
+    margin-top: 0.75em;
+  }
+  label {
+    color: $black_clr;
+  }
+}
+
+/*  
+            +-+-+-+- footer section -+-+-+-+  
+*/
+
+.footer-sec {
+  margin-top: auto;
+  padding: 1em 2em;
+  box-sizing: border-box;
+  background-color: $bold_theme_clr;
+  border-radius: 10px 10px 0 0;
+  .footer-sec__paragraph--copy-right {
+    color: $bg_clr;
+    text-align: center;
+  }
+}

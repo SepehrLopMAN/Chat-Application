@@ -1,0 +1,20 @@
+// Scrollbar customization
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #004bff;
+
+  &:hover {
+    background-color: #004bff25;
+  }
+}
+
+::-webkit-scrollbar-track {
+  background-color: $bg_clr;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 0.625rem;
+}

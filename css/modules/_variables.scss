@@ -1,0 +1,29 @@
+//          Fonts
+
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+$main_font: "Lato", sans-serif;
+
+//          Colors
+$dark_inactive_clr: #555; // Disabled Color
+$white_clr: #eee;
+$black_clr: #000;
+$gray_clr: #cbcdd3;
+$dark_clr: #777;
+$error_clr: #ef8d9c; // Error Color
+$orange_clr: #ffc39e;
+$success_clr: #b0db7d; // Success Color
+$secondary_clr: #99dbb4;
+
+/*  Theme preferences  */
+
+$bg_clr: $white_clr; // Background Color
+$fg_clr: $black_clr; // Foreground Color
+$bold_theme_clr: #003abd;
+$light_theme_clr: #4e60ff; // Main Color
+$secondary_theme_clr: #bd0088;
+
+$bg_img_lg: linear-gradient(
+  145deg,
+  $bg_clr 40%,
+  $bold_theme_clr 100%
+); // Background Image Linear Gradient
