@@ -212,6 +212,21 @@ body {
   width: 70%;
 }
 
+.form-input__inp--username-status,
+.form__paragraph--error-details {
+  margin: 0;
+}
+
+.form-input__inp--username-status {
+  font-size: 0.625em;
+}
+
+.form__paragraph--error-details {
+  font-size: 1rem;
+  color: #f44336;
+  text-align: center;
+}
+
 h1.container__text--error {
   margin-top: 0;
   padding-top: 0.67em;
@@ -233,6 +248,12 @@ h1.container__text--error {
 
 .form__form-input--profile-pic label {
   color: #000;
+}
+
+.form-container__paragraph--success {
+  text-align: center;
+  padding: 1em 0;
+  font-size: 17px;
 }
 
 /*  

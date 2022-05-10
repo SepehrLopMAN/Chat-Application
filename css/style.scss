@@ -128,6 +128,19 @@ body {
   width: 70%;
 }
 
+.form-input__inp--username-status,
+.form__paragraph--error-details {
+  margin: 0;
+}
+
+.form-input__inp--username-status {
+  font-size: 0.625em;
+}
+.form__paragraph--error-details {
+  font-size: 1rem;
+  color: $error_clr;
+  text-align: center;
+}
 // a[class="input-form"] {
 //   color: unset;
 // }
@@ -154,6 +167,11 @@ h1.container__text--error {
   label {
     color: $black_clr;
   }
+}
+.form-container__paragraph--success {
+  text-align: center;
+  padding: 1em 0;
+  font-size: 17px;
 }
 
 /*  

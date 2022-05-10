@@ -27,11 +27,14 @@
                        Username
                     </span>
                 </label>
+                <p class="form-input__inp--username-status">
+
+                </p>
             </div>
             
             <div class="form__form-input">
               <label>
-                 <input name="email" type="email" required>
+                 <input name="email" type="text" required>
                  <span>
                      Email Address
                  </span>
@@ -60,13 +63,17 @@
 
            <div class="form__form-input--profile-pic">
                <label>
-                    Profile Picture
+                    Profile Picture (Optional)
                    <input name="profile-pic" type="file">
                 </label>
              
            </div>
 
-           <input class="form__form-input--submit" name="submit" type="submit" value="Sign Up">
+           <p class="form__paragraph--error-details">
+
+           </p>
+
+           <input class="form__form-input--submit" name="submit" type="button" value="Sign Up">
     </form>
     
 </div>
