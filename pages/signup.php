@@ -1,5 +1,10 @@
  
  <!DOCTYPE html>
+ <?php
+    define("header_comp__access",1);
+    define("signup-form_comp__access",1);
+    define("footer_comp__access",1);
+ ?>
  <html lang="en">
  <head>
      <meta charset="UTF-8">

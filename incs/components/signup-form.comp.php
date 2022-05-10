@@ -1,3 +1,9 @@
+<?php 
+if (!defined("signup-form_comp__access")) {
+        header("Location: ../../pages/home.php");
+        exit();
+} 
+?>
 <div class="form-container">
 
     

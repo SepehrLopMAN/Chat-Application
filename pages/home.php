@@ -1,5 +1,8 @@
- 
  <!DOCTYPE html>
+ <?php
+    define("footer_comp__access",1);
+    define("header_comp__access",1);
+ ?>
  <html lang="en">
  <head>
      <meta charset="UTF-8">

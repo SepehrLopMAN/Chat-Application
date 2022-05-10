@@ -173,6 +173,14 @@ h1.container__text--error {
   padding: 1em 0;
   font-size: 17px;
 }
+.login-form-container__paragraph--register {
+  text-align: center;
+  color: $fg_clr;
+  > a {
+    text-decoration: none;
+    color: $light_theme_clr;
+  }
+}
 
 /*  
             +-+-+-+- footer section -+-+-+-+  

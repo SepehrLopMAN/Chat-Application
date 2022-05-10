@@ -1,4 +1,8 @@
 <?php
+if (!defined("--DBH_ACCESS--")) {
+    header("Location: ../../pages/home.php");
+    exit();
+}
 
 $server = "127.0.0.1";
 $db_username = "root";

@@ -1,3 +1,9 @@
+
+<?php 
+    if (!defined("header_comp__access")) {
+        header("Location: ../../pages/home.php");
+        exit();
+} ?>
 <header class="header-sec">
     <nav class="header-sec__nav-bar">
         <ul class="nav-bar__list--general-nav">

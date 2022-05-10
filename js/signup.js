@@ -1,7 +1,6 @@
 const form = document.querySelector(".form-container__form--sign-up");
 submitBtn = form.querySelector(".form__form-input--submit");
 var usernameTimer;
-var emailTimer;
 form.querySelector('[name = "username"]').onkeyup = () => {
   // username input event listener for checking if username already exists
   usernameInp = form.querySelector('[name = "username"]');
