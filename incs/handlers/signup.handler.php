@@ -13,7 +13,7 @@ $username = mysqli_real_escape_string($conn, $_POST['username']);
 $email = mysqli_real_escape_string($conn, $_POST['email']);
 $pwd = mysqli_real_escape_string($conn, $_POST['password']);
 $re_pwd =  mysqli_real_escape_string($conn, $_POST['re-password']);
-$file_name = NULL;
+$file_name = "default.jpg";
 
 if(empty($name) || empty($surname) || empty($username) || empty($email) || empty($pwd) || empty($re_pwd)) {
     exit("Please fill all the required input fields!");
@@ -66,7 +66,7 @@ if (isset($_FILES['profile-pic']) && $_FILES['profile-pic']['size']) {
 $status = "Active";
 
 (function ($db_conn, $name, $surname, $username, $email, $pwd, $file_name, $status ){
-    $db_sql_query_check = "INSERT INTO users (firstname, surname, email, username, userPassword, userProfilePic, userStatus) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $db_sql_query_check = "INSERT INTO users (firstname, surname, email, username, userPassword, userProfilePic, userStatus, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = mysqli_stmt_init($db_conn);
     if(!mysqli_stmt_prepare($stmt, $db_sql_query_check)) {
         mysqli_stmt_close($stmt);
@@ -76,7 +76,8 @@ $status = "Active";
     $name = strtolower($name);
     $username = strtolower($username);
     $surname = strtolower($surname);
-    mysqli_stmt_bind_param($stmt, "sssssss", $name, $surname, $email, $username, $hashed_pwd, $file_name, $status);
+    $user_id = rand(time(), 100000000);
+    mysqli_stmt_bind_param($stmt, "ssssssss", $name, $surname, $email, $username, $hashed_pwd, $file_name, $status, $user_id);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
     exit();

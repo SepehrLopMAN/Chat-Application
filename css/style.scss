@@ -25,16 +25,24 @@ body {
 */
 
 .header-sec {
-  padding: 1em 2em;
+  padding: 1em;
   background-color: $bold_theme_clr;
   font-size: 1.125rem;
   border-radius: 0 0 10px 10px;
 }
 
+.header-sec--chat {
+  @extend .header-sec;
+  position: sticky;
+  top: 0;
+  padding: 0.5em 1em;
+  z-index: 1;
+}
+
 .header-sec__nav-bar {
   display: flex;
   justify-content: space-between;
-  > ul[class^="nav-bar__list"] {
+  > ul[class^="nav-bar__menu"] {
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -46,7 +54,7 @@ body {
     }
   }
 }
-.nav-bar__list--user-account {
+.nav-bar__menu--user-account {
   flex: 0 1 150px;
 }
 
@@ -56,6 +64,10 @@ body {
 
 .main-sec {
   padding: 4em 0 3em;
+}
+
+.main-sec--chat {
+  flex-grow: 1;
 }
 
 .form-container {
@@ -78,45 +90,56 @@ body {
   gap: 3rem;
   justify-content: center;
   align-items: center;
-  .form__form-input {
-    position: relative;
-    width: 70%;
-    font-size: 1.25em;
-    input,
-    span {
-      color: $fg_clr;
+}
+.form__form-input {
+  position: relative;
+  width: 70%;
+  font-size: 1.25em;
+  input,
+  span {
+    color: $fg_clr;
+  }
+  span {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  input {
+    border: 0;
+    border-bottom: 1px solid $dark_inactive_clr;
+    background: transparent;
+    width: 100%;
+    padding: 8px 0 5px 0;
+    &:focus {
+      border: none;
+      outline: none;
+      border-bottom: 1px solid $light_theme_clr;
     }
-    span {
-      position: absolute;
-      pointer-events: none;
-      top: 0;
-      left: 0;
-      transition: all 0.5s ease-in-out;
-    }
-    input {
-      border: 0;
-      border-bottom: 1px solid $dark_inactive_clr;
-      background: transparent;
-      width: 100%;
-      padding: 8px 0 5px 0;
-      &:focus {
-        border: none;
-        outline: none;
-        border-bottom: 1px solid $light_theme_clr;
-      }
-      &:focus + span,
-      &:valid + span {
-        top: -15px;
-        font-size: 0.75em;
-      }
-    }
-    > i {
-      position: absolute;
-      right: 0;
-      padding: 5px 0;
-      cursor: pointer;
+    &:focus + span,
+    &:valid + span {
+      top: -15px;
+      font-size: 0.75em;
     }
   }
+  > i {
+    position: absolute;
+    right: 0;
+    padding: 5px 0;
+    cursor: pointer;
+  }
+  .fa-magnifying-glass {
+    font-size: 0.75em;
+  }
+}
+
+.search-bar-input {
+  @extend .form__form-input;
+  input {
+    text-align: center;
+  }
+  width: 100%;
 }
 .form__form-input--submit {
   padding: 0.6em;
@@ -179,6 +202,172 @@ h1.container__text--error {
   > a {
     text-decoration: none;
     color: $light_theme_clr;
+  }
+}
+
+/*  
+            +-+-+-+- User Active Css Codes (Chat & Users pages) -+-+-+-+  
+*/
+
+// header section
+
+.nav-bar__menu--online-user-account {
+  flex-grow: 1;
+  flex-basis: calc(100vh - 86px);
+  justify-content: space-around;
+  align-items: center;
+}
+.menu__user-info,
+.users__user-info {
+  display: flex;
+  align-items: center;
+  color: $bg_clr;
+
+  .user-info__txt {
+    padding-left: 1em;
+    > p {
+      font-size: 0.7em;
+      margin: 0;
+      padding-top: 0.5em;
+    }
+    .user-info__txt--user-name {
+      margin: 0;
+      font-size: 1em;
+    }
+  }
+}
+.user-info__profile-pic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.menu__backwards-btn {
+  color: $bg_clr;
+}
+
+// main section
+
+.main-sec {
+  overflow: auto;
+  padding: 1em;
+}
+.main-sec__users-container {
+  border: 1px solid $light_theme_clr;
+  background-color: $bg_clr;
+  box-shadow: 1px 1px 15px 0px $bg_clr;
+  border-radius: 10px;
+  padding: 1em;
+  margin: auto auto;
+}
+
+.users {
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.users__item-container {
+  padding: 1em 0;
+  .users__user-info {
+    color: $fg_clr;
+    padding: 0 0.5em;
+    justify-content: space-between;
+    .user-info__txt {
+      padding: 0;
+      text-align: center;
+    }
+  }
+  .user-info__circle--status {
+    margin: 0 20px;
+    width: 10px;
+    height: 10px;
+    background-color: $light_theme_clr;
+    border-radius: 50%;
+  }
+  .status--active-user {
+    opacity: 1;
+  }
+  .status--inactive-user {
+    opacity: 0.15;
+  }
+}
+
+.chat-container__form-container {
+  position: sticky;
+  width: 100%;
+  bottom: 0;
+  padding: 0.5em;
+  border-radius: 10px 10px 0 0;
+  box-sizing: border-box;
+  background-color: $bg_clr;
+  z-index: 1;
+  form {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5em;
+}
+
+.chat-box__incoming-msg-container {
+  display: flex;
+  .user-info__profile-pic {
+    align-self: flex-end;
+  }
+}
+
+%chat-box__message {
+  padding: 1em;
+  max-width: 65%;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 10px 0px $black_clr;
+  margin: 0.5em 0 0.5em 0.5em;
+  border-radius: 30px;
+}
+.chat-box__message--incoming-msg {
+  @extend %chat-box__message;
+  align-self: flex-start;
+  background-color: $white_clr;
+  border-bottom-left-radius: 0;
+}
+
+.chat-box__message--outgoing-msg {
+  @extend %chat-box__message;
+  align-self: flex-end;
+  background-color: $light_theme_clr;
+  border-bottom-right-radius: 0;
+  color: $bg_clr;
+}
+
+.form__msg-bar {
+  @extend .form__form-input;
+  flex-grow: 1;
+}
+
+.form__send-btn-container {
+  padding-left: 0.125em;
+  > .send-btn {
+    cursor: pointer;
+    border: 1px solid $bg_clr;
+
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    background-color: $bold_theme_clr;
+    color: $bg_clr;
+    box-shadow: 0px 0px 5px 0px $fg_clr;
+    &:hover {
+      opacity: 0.9;
+    }
+
+    > i.fa-square-arrow-up-right {
+      font-size: 1rem;
+    }
   }
 }
 

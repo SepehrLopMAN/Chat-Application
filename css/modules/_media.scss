@@ -1,4 +1,4 @@
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 870px) {
   .form-container {
     width: calc(100% - 4em) !important;
   }
@@ -15,6 +15,9 @@
 @media (prefers-color-scheme: dark) {
   html {
     filter: invert(1) hue-rotate(95deg);
+  }
+  img {
+    filter: invert(1) hue-rotate(265deg);
   }
 }
 @media (prefers-color-scheme: light) {

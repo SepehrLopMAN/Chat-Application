@@ -4,7 +4,8 @@ if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$_SERVER['HTTP_X_REQUESTED_WITH
     header("Location: ../../pages/home.php");
     exit();
 }
-define("--DBH_ACCESS--",1);
+if(!defined("--DBH_ACCESS--"))
+    define("--DBH_ACCESS--",1);
 include_once "./db.handler.php";
 
 
