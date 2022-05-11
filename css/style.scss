@@ -66,8 +66,11 @@ body {
   padding: 4em 0 3em;
 }
 
-.main-sec--chat {
+.main-sec--chat,
+.main-sec__chat-container {
   flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-container {
@@ -302,16 +305,15 @@ h1.container__text--error {
   box-sizing: border-box;
   background-color: $bg_clr;
   z-index: 1;
-  form {
-    display: flex;
-    align-items: center;
-  }
+  display: flex;
+  align-items: center;
 }
 
 .chat-box {
   display: flex;
   flex-direction: column;
   padding: 0 0.5em;
+  flex-grow: 1;
 }
 
 .chat-box__incoming-msg-container {
@@ -322,26 +324,53 @@ h1.container__text--error {
 }
 
 %chat-box__message {
+  position: relative;
   padding: 1em;
   max-width: 65%;
   box-sizing: border-box;
-  box-shadow: 1px 1px 10px 0px $black_clr;
+  box-shadow: 0px 0px 15px -4px $black_clr;
   margin: 0.5em 0 0.5em 0.5em;
-  border-radius: 30px;
+  border-radius: 15px;
+  border: 1px solid;
 }
+
+%curvy-corner {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  background: inherit;
+  bottom: -3px;
+  position: absolute;
+  border: 1px solid;
+
+  border-top-color: transparent;
+}
+
 .chat-box__message--incoming-msg {
   @extend %chat-box__message;
   align-self: flex-start;
   background-color: $white_clr;
-  border-bottom-left-radius: 0;
+  color: $fg_clr;
+  .msg-box__span--corner {
+    @extend %curvy-corner;
+    left: -3px;
+    border-radius: 10px 0px;
+    border-right-color: transparent;
+  }
 }
 
 .chat-box__message--outgoing-msg {
   @extend %chat-box__message;
   align-self: flex-end;
   background-color: $light_theme_clr;
-  border-bottom-right-radius: 0;
+
   color: $bg_clr;
+  .msg-box__span--corner {
+    @extend %curvy-corner;
+    right: -3px;
+    border-radius: 0 10px;
+    border-left-color: transparent;
+  }
 }
 
 .form__msg-bar {
@@ -362,7 +391,7 @@ h1.container__text--error {
     color: $bg_clr;
     box-shadow: 0px 0px 5px 0px $fg_clr;
     &:hover {
-      opacity: 0.9;
+      opacity: 0.7;
     }
 
     > i.fa-square-arrow-up-right {

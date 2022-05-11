@@ -5,7 +5,7 @@ $main_font: "Lato", sans-serif;
 
 //          Colors
 $dark_inactive_clr: #555; // Disabled Color
-$white_clr: #eee;
+$white_clr: #f3ecff;
 $black_clr: #000;
 $gray_clr: #cbcdd3;
 $dark_clr: #777;
@@ -23,7 +23,7 @@ $light_theme_clr: #4e60ff; // Main Color
 $secondary_theme_clr: #bd0088;
 
 $bg_img_lg: linear-gradient(
-  145deg,
+  215deg,
   $bg_clr 40%,
   $bold_theme_clr 100%
 ); // Background Image Linear Gradient

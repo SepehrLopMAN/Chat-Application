@@ -18,7 +18,7 @@ submitBtn.onclick = () => {
           form.querySelector(".form__paragraph--error-details").innerHTML =
             data;
         } else {
-          location.href = "./";
+          window.location.href = "users.php";
         }
       }
     }
