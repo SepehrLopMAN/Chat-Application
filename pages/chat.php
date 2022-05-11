@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <?php
+    session_start();
+    if (!isset($_SESSION['uid'])) {
+        header("Location: ./home.php");
+        exit();
+    }
     define("active-user-header_comp__access",1);
     define("chat-box_comp__access",1);
  ?>

@@ -63,7 +63,7 @@ if (isset($_FILES['profile-pic']) && $_FILES['profile-pic']['size']) {
     }
     
 }
-$status = "Active";
+$status = "Online";
 
 (function ($db_conn, $name, $surname, $username, $email, $pwd, $file_name, $status ){
     $db_sql_query_check = "INSERT INTO users (firstname, surname, email, username, userPassword, userProfilePic, userStatus, user_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
@@ -76,6 +76,8 @@ $status = "Active";
     $name = strtolower($name);
     $username = strtolower($username);
     $surname = strtolower($surname);
+    $name = ucfirst($name);
+    $surname = ucfirst($surname);
     $user_id = rand(time(), 100000000);
     mysqli_stmt_bind_param($stmt, "ssssssss", $name, $surname, $email, $username, $hashed_pwd, $file_name, $status, $user_id);
     mysqli_stmt_execute($stmt);

@@ -12,7 +12,7 @@
              <label>
                  <input name="username" type="text" required>
                 <span>
-                    Username/Email
+                    Username
                 </span>
              </label>
            </div>
