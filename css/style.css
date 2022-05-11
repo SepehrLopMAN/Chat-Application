@@ -239,6 +239,25 @@ body {
   text-align: center;
 }
 
+.search-bar-input input[type="text"]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.search-bar-input input[type="text"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.search-bar-input input[type="search"]::-webkit-search-decoration,
+.search-bar-input input[type="search"]::-webkit-search-cancel-button,
+.search-bar-input input[type="search"]::-webkit-search-results-button,
+.search-bar-input input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
 .form__form-input--submit {
   padding: 0.6em;
   text-transform: uppercase;

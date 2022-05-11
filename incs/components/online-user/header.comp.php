@@ -11,6 +11,7 @@
     if (!(mysqli_num_rows($sql_query) > 0)) {
         //!!!!! NEED TO DESTROY THE SESSION HERE, LOG OUT AND CHANGE THE LOCATION TO HOME PAGE
         header("Location: ./home.php");
+        // exit();
     }
     $userInfo = mysqli_fetch_assoc($sql_query);
 ?>
