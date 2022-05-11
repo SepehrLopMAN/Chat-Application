@@ -7,7 +7,7 @@ if (!defined("signup-form_comp__access")) {
 <div class="form-container">
 
     
-    <form action="./" method="post" class="form-container__form--sign-up" enctype="multipart/form-data">
+    <form action="./" method="post" class="form-container__form--sign-up" autocomplete="off" enctype="multipart/form-data">
     <div class="form__form-input">
              <label>
                 <input name="name" type="text" required>

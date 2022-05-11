@@ -1,6 +1,20 @@
 const searchBar = document.querySelector('[name="search"]');
 var searchTimer;
-var searchInterval;
+var searchInterval = setInterval(() => {
+  let XmlHttpReq = new XMLHttpRequest();
+  XmlHttpReq.open("GET", "../incs/handlers/available-users.handler.php", true);
+  XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
+  XmlHttpReq.onload = () => {
+    if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {
+      if (XmlHttpReq.status === 200) {
+        let data = XmlHttpReq.response;
+        document.querySelector(".users").innerHTML = data;
+      }
+    }
+  };
+  XmlHttpReq.send();
+}, 700);
+
 searchBar.onkeyup = () => {
   let searchKeyWord = searchBar.value;
   if (searchKeyWord != "") {
@@ -46,7 +60,6 @@ searchBar.onkeyup = () => {
         if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {
           if (XmlHttpReq.status === 200) {
             let data = XmlHttpReq.response;
-            console.log(data);
             document.querySelector(".users").innerHTML = data;
           }
         }
@@ -55,18 +68,3 @@ searchBar.onkeyup = () => {
     }, 700);
   }
 };
-
-searchInterval = setInterval(() => {
-  let XmlHttpReq = new XMLHttpRequest();
-  XmlHttpReq.open("GET", "../incs/handlers/available-users.handler.php", true);
-  XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
-  XmlHttpReq.onload = () => {
-    if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {
-      if (XmlHttpReq.status === 200) {
-        let data = XmlHttpReq.response;
-        document.querySelector(".users").innerHTML = data;
-      }
-    }
-  };
-  XmlHttpReq.send();
-}, 700);
