@@ -1,4 +1,7 @@
 <?php 
+
+    // include_once '\addons/beta/chat_app/auth/access-auth.php';
+
     if (!defined("active-user-header_comp__access")) {
         header("Location: ../../../pages/home.php");
         exit();
@@ -9,14 +12,14 @@
 
     $sql_query = mysqli_query($conn, "SELECT * FROM users WHERE uid = {$_SESSION['uid']}");
     if (!(mysqli_num_rows($sql_query) > 0)) {
-        //!!!!! NEED TO DESTROY THE SESSION HERE, LOG OUT AND CHANGE THE LOCATION TO HOME PAGE
+        
         header("Location: ./home.php");
         // exit();
     }
     $userInfo = mysqli_fetch_assoc($sql_query);
     if (isset($_GET['user_id'])) {
-        if ( $_GET['user_id'] === "" ) {
-            header("Location: ./users.php?err=invalidUser");
+        if (!preg_match("/^[0-9]+$/",$_GET['user_id'])) {
+            header("Location: ./users.php?err=invalidContact");
             exit();
         }
         $contact_id = mysqli_real_escape_string($conn, $_GET['user_id']);

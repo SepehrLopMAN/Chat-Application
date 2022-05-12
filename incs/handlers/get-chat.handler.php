@@ -1,4 +1,7 @@
 <?php
+
+    // include_once '\addons/beta/chat_app/auth/access-auth.php';
+
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
         header("Location: ../../pages/home.php");
         exit();
@@ -8,12 +11,19 @@
         header("Location: ./login.php");
         exit();
     }
+
     define("--DBH_ACCESS--",1);
     include_once "./db.handler.php";
+
+
     $outgoing_id_sql_query = mysqli_query($conn, "SELECT user_id FROM users WHERE uid = {$_SESSION['uid']}");
     $outgoing_id = mysqli_fetch_assoc($outgoing_id_sql_query);
     $outgoing_id = mysqli_real_escape_string($conn, $outgoing_id['user_id']);
+    if(!preg_match("/^[0-9]+$/",$_POST['user_id'])) {
+        exit("<p class='chat-box__paragraph--err'>Something went Wrong!</p>");
+    }
     $incoming_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+
     $incoming_profile_pic_sql_query = mysqli_query($conn, "SELECT userProfilePic FROM users WHERE user_id = {$incoming_id}");
     $userProfilePic = mysqli_fetch_assoc($incoming_profile_pic_sql_query);
     $userProfilePic = mysqli_real_escape_string($conn, $userProfilePic['userProfilePic']);

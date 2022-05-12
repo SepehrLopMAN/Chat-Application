@@ -1,8 +1,12 @@
 <?php
- if (!defined("login-form_comp__access")) {
-        header("Location: ../../pages/home.php");
-        exit();
-} ?>
+
+    // include_once '\addons/beta/chat_app/auth/access-auth.php';
+
+    if (!defined("login-form_comp__access")) {
+            header("Location: ../../pages/home.php");
+            exit();
+    } 
+?>
 <div class="form-container">
 
     

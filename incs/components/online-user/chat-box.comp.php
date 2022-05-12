@@ -1,5 +1,7 @@
 
 <?php 
+    // include_once '\addons/beta/chat_app/auth/access-auth.php';
+
     if (!defined("chat-box_comp__access")) {
         header("Location: ../../../pages/home.php");
         exit();

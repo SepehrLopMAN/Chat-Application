@@ -1,5 +1,7 @@
 <?php
 
+    // include_once '\addons/beta/chat_app/auth/access-auth.php';
+
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
         header("Location: ../../pages/home.php");
         exit();
@@ -14,9 +16,9 @@
     include_once "./db.handler.php";
     $outgoing_id_sql_query = mysqli_query($conn, "SELECT user_id FROM users WHERE uid = {$_SESSION['uid']}");
     $outgoing_id = mysqli_fetch_assoc($outgoing_id_sql_query);
-    $outgoing_id = mysqli_real_escape_string($conn, $outgoing_id['user_id']);
-    $incoming_id = mysqli_real_escape_string($conn, $_POST['user_id']);
-    $message = mysqli_real_escape_string($conn, $_POST['message']);
+    $outgoing_id = filter_var(mysqli_real_escape_string($conn, $outgoing_id['user_id']), FILTER_SANITIZE_STRING);
+    $incoming_id = filter_var(mysqli_real_escape_string($conn, $_POST['user_id']), FILTER_SANITIZE_STRING);
+    $message = filter_var(mysqli_real_escape_string($conn, $_POST['message']), FILTER_SANITIZE_STRING);
     if(empty($message)) {
         exit();
     }

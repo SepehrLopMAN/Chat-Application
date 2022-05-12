@@ -1,4 +1,7 @@
 <?php
+
+    // include_once '\addons/beta/chat_app/auth/access-auth.php';
+
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
         header("Location: ../../pages/home.php");
         exit();
