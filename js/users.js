@@ -2,7 +2,7 @@ const searchBar = document.querySelector('[name="search"]');
 var searchTimer;
 var searchInterval = setInterval(() => {
   let XmlHttpReq = new XMLHttpRequest();
-  XmlHttpReq.open("GET", "../incs/handlers/available-users.handler.php", true);
+  XmlHttpReq.open("GET", "./incs/handlers/available-users.handler.php", true);
   XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   XmlHttpReq.onload = () => {
     if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {
@@ -24,11 +24,7 @@ searchBar.onkeyup = () => {
     }
     searchTimer = setTimeout(() => {
       let XmlHttpReq = new XMLHttpRequest();
-      XmlHttpReq.open(
-        "POST",
-        "../incs/handlers/users-search.handler.php",
-        true
-      );
+      XmlHttpReq.open("POST", "./incs/handlers/users-search.handler.php", true);
       XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
       XmlHttpReq.onload = () => {
         if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {
@@ -52,7 +48,7 @@ searchBar.onkeyup = () => {
       let XmlHttpReq = new XMLHttpRequest();
       XmlHttpReq.open(
         "GET",
-        "../incs/handlers/available-users.handler.php",
+        "./incs/handlers/available-users.handler.php",
         true
       );
       XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");

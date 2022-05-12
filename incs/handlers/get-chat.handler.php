@@ -3,7 +3,7 @@
     // include_once '\addons/beta/chat_app/auth/access-auth.php';
 
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
-        header("Location: ../../pages/home.php");
+        header("Location: ../../users.php");
         exit();
     }
     session_start();
@@ -20,7 +20,7 @@
     $outgoing_id = mysqli_fetch_assoc($outgoing_id_sql_query);
     $outgoing_id = mysqli_real_escape_string($conn, $outgoing_id['user_id']);
     if(!preg_match("/^[0-9]+$/",$_POST['user_id'])) {
-        exit("<p class='chat-box__paragraph--err'>Something went Wrong!</p>");
+        exit("<p class='chat-box__paragraph--err'>Something went Wrong!<br \><br \>Reopen the chat!</p>");
     }
     $incoming_id = mysqli_real_escape_string($conn, $_POST['user_id']);
 
@@ -53,7 +53,7 @@
                 $result .= 
                 '
                     <div class="chat-box__incoming-msg-container">
-                        <img src="../assets/images/' . $userProfilePic . '" alt="Profile image" class="user-info__profile-pic">                            
+                        <img src="./assets/images/' . $userProfilePic . '" alt="Profile image" class="user-info__profile-pic">                            
                         <div class="chat-box__message--incoming-msg">
                             ' . $messages["message"] . '
                             <span class="msg-box__span--corner"> </span>

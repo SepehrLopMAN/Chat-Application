@@ -8,7 +8,7 @@ form.querySelector('[name = "username"]').onkeyup = () => {
   usernameStatus.innerHTML = "Checking..";
   usernameStatus.style.color = usernameInp.style.borderBottomColor = "gray";
   let XmlHttpReq = new XMLHttpRequest();
-  XmlHttpReq.open("POST", "../incs/handlers/username-err.handler.php", true);
+  XmlHttpReq.open("POST", "./incs/handlers/username-err.handler.php", true);
   XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   if (usernameTimer != undefined) clearTimeout(usernameTimer);
   usernameTimer = setTimeout(() => {
@@ -41,7 +41,7 @@ form.onsubmit = (event) => {
 submitBtn.onclick = () => {
   // Starting Ajax & Creating XML Object
   let XmlHttpReq = new XMLHttpRequest();
-  XmlHttpReq.open("POST", "../incs/handlers/signup.handler.php", true);
+  XmlHttpReq.open("POST", "./incs/handlers/signup.handler.php", true);
   XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   XmlHttpReq.onload = () => {
     if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {

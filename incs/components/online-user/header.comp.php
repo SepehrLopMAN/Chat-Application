@@ -3,18 +3,19 @@
     // include_once '\addons/beta/chat_app/auth/access-auth.php';
 
     if (!defined("active-user-header_comp__access")) {
-        header("Location: ../../../pages/home.php");
+        header("Location: ../../../users.php");
         exit();
     }
 
     define("--DBH_ACCESS--",1);
-    include_once "../incs/handlers/db.handler.php";
+    include_once "./incs/handlers/db.handler.php";
 
     $sql_query = mysqli_query($conn, "SELECT * FROM users WHERE uid = {$_SESSION['uid']}");
     if (!(mysqli_num_rows($sql_query) > 0)) {
-        
+        session_unset();
+        session_destroy();
         header("Location: ./home.php");
-        // exit();
+        exit();
     }
     $userInfo = mysqli_fetch_assoc($sql_query);
     if (isset($_GET['user_id'])) {
@@ -41,7 +42,7 @@
         ?>
         <li>
             <div class="menu__user-info">
-                <img src="../assets/images/<?php echo (!isset($contact)) ? $userInfo['userProfilePic'] : $contact['userProfilePic']; ?>" alt="Profile image" class="user-info__profile-pic">                            
+                <img src="./assets/images/<?php echo (!isset($contact)) ? $userInfo['userProfilePic'] : $contact['userProfilePic']; ?>" alt="Profile image" class="user-info__profile-pic">                            
                 <div class="user-info__txt">
                     <h2 class="user-info__txt--user-name"><?php echo (!isset($contact)) ? "{$userInfo['firstname']} {$userInfo['surname']}" : "{$contact['firstname']} {$contact['surname']}" ; ?></h2>
                     <p><?php echo (!isset($contact)) ? $userInfo['userStatus'] : $contact['userStatus'] ;?></p>
@@ -49,6 +50,6 @@
             </div>
             
         </li>
-        <li><a href="../incs/handlers/logout.handler.php">Log out</a></li>
+        <li><a href="./incs/handlers/logout.handler.php">Log out</a></li>
     </ul>
 </nav>        

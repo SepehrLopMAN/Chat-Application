@@ -3,7 +3,7 @@
     // include_once '\addons/beta/chat_app/auth/access-auth.php';
 
     if (!defined("--DBH_ACCESS--")) {
-        header("Location: ../../pages/home.php");
+        header("Location: ../../users.php");
         exit();
     }
 

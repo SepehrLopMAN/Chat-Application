@@ -8,7 +8,7 @@ form.onsubmit = (event) => {
 submitBtn.onclick = () => {
   // Starting Ajax & Creating XML Object
   let XmlHttpReq = new XMLHttpRequest();
-  XmlHttpReq.open("POST", "../incs/handlers/login.handler.php", true);
+  XmlHttpReq.open("POST", "./incs/handlers/login.handler.php", true);
   XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   XmlHttpReq.onload = () => {
     if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {

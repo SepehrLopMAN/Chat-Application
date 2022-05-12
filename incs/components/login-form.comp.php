@@ -3,14 +3,14 @@
     // include_once '\addons/beta/chat_app/auth/access-auth.php';
 
     if (!defined("login-form_comp__access")) {
-            header("Location: ../../pages/home.php");
+            header("Location: ../../users.php");
             exit();
     } 
 ?>
 <div class="form-container">
 
     
-    <form action="./" method="post" class="form-container__form--login" autocomplete="off">
+    <form action="javascript:void(0)" method="post" class="form-container__form--login" autocomplete="off">
         
            <div class="form__form-input">
              <label>

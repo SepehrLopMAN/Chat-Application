@@ -16,7 +16,6 @@ body {
   min-height: 100vh;
   background-image: $bg_img_lg;
   color: $light_theme_clr;
-  //   height: 1000px;
   background-repeat: no-repeat;
 }
 
@@ -183,9 +182,6 @@ body {
   color: $error_clr;
   text-align: center;
 }
-// a[class="input-form"] {
-//   color: unset;
-// }
 
 h1.container__text--error {
   margin-top: 0;

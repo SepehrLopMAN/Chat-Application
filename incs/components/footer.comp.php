@@ -2,7 +2,7 @@
         // include_once '\addons/beta/chat_app/auth/access-auth.php';
 
         if (!defined("footer_comp__access")) {
-                header("Location: ../../pages/home.php");
+                header("Location: ../../users.php");
                 exit();
         } 
 ?>

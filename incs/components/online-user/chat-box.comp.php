@@ -3,7 +3,7 @@
     // include_once '\addons/beta/chat_app/auth/access-auth.php';
 
     if (!defined("chat-box_comp__access")) {
-        header("Location: ../../../pages/home.php");
+        header("Location: ../../../users.php");
         exit();
     }
 ?>
@@ -15,7 +15,7 @@
                         +-+-+-+- Incoming message sample -+-+-+-+
 
                 <div class="chat-box__incoming-msg-container">
-                    <img src="../assets/images/default.jpg" alt="Profile image" class="user-info__profile-pic">                            
+                    <img src="./assets/images/default.jpg" alt="Profile image" class="user-info__profile-pic">                            
                     <div class="chat-box__message--incoming-msg">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor ipsum officia corporis, quasi veniam corrupti sunt consequuntur quidem eveniet, sed nobis. Libero nulla enim, incidunt modi eum ex quisquam ratione.
                         <span class="msg-box__span--corner"> </span>

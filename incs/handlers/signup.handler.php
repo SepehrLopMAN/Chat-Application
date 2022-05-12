@@ -3,7 +3,7 @@
     // include_once '\addons/beta/chat_app/auth/access-auth.php';
 
     if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || !$_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest') {
-        header("Location: ../../pages/home.php");
+        header("Location: ../../users.php");
         exit();
     }
     define("--DBH_ACCESS--",1);

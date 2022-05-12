@@ -5,7 +5,7 @@ const sendBtn = form.querySelector(".send-btn");
 (function () {
   function XMLreq() {
     let XmlHttpReq = new XMLHttpRequest();
-    XmlHttpReq.open("POST", "../incs/handlers/get-chat.handler.php", true);
+    XmlHttpReq.open("POST", "./incs/handlers/get-chat.handler.php", true);
     XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
     XmlHttpReq.onload = () => {
       if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {
@@ -44,7 +44,7 @@ $(".chat-box").mouseleave(() => {
 
 sendBtn.onclick = (event) => {
   let XmlHttpReq = new XMLHttpRequest();
-  XmlHttpReq.open("POST", "../incs/handlers/chat-insert.handler.php", true);
+  XmlHttpReq.open("POST", "./incs/handlers/chat-insert.handler.php", true);
   XmlHttpReq.setRequestHeader("X-Requested-With", "XMLHttpRequest");
   XmlHttpReq.onload = () => {
     if (XmlHttpReq.readyState === XMLHttpRequest.DONE) {
