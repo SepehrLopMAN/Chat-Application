@@ -10,7 +10,7 @@
     if(!defined("--DBH_ACCESS--"))
         define("--DBH_ACCESS--",1);
     include_once "./db.handler.php";
-    $sql_query = mysqli_query($conn, "SELECT * FROM users");
+    $sql_query = mysqli_query($conn, "SELECT * FROM `users` ORDER BY userStatus DESC, username ASC, firstname ASC, surname ASC;");
     $result = "";
     if (mysqli_num_rows($sql_query) == 1) {
         $result .= "<p style='text-align:center;'>No users are available to chat!</p>";

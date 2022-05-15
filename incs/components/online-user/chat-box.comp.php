@@ -10,8 +10,8 @@
 <div class="main-sec__chat-container">
         <div class="chat-box">
             
-
-            <!--
+<?php
+            /*
                         +-+-+-+- Incoming message sample -+-+-+-+
 
                 <div class="chat-box__incoming-msg-container">
@@ -21,26 +21,33 @@
                         <span class="msg-box__span--corner"> </span>
                     </div>
                 </div>
-            -->
+            
 
 
-            <!--  
+              
                         +-+-+-+- Outgoing message sample -+-+-+-+
 
                 <div class="chat-box__message--outgoing-msg">
                     Lorem ipsum
                     <span class="msg-box__span--corner"> </span>
                 </div>
-             -->
 
-
-        </div>
+            */
+        
+?>
+            </div>
 
 
         <div class="chat-container__form-container">
-            <form action="javascript:void(0)" method="post" class="chat-message-form">
+            <form action="javascript:void(0)" method="post" class="chat-message-form" enctype="multipart/form-data" autocomplete="off">
+                <div class="form__file-attachment-container">    
+                    <label>
+                    <i class="fa-solid fa-paperclip"></i>
+                        <input type="file" name="file">
+                    </label>
+                </div>
                 <div class="form__msg-bar">
-                    <input type="text" name="message" placeholder="Message" autocomplete="off">
+                    <input type="text" name="message" placeholder="Message">
                 </div>
     
                 <div class="form__send-btn-container" >

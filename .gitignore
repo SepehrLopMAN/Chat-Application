@@ -1,2 +1,8 @@
 # Ignoring images
 assets/images/
+
+# Ignoring mailer files (Temporary)
+mailer/
+
+# Ignoring server tests file for websocket
+test.php

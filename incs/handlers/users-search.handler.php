@@ -12,7 +12,7 @@
     include_once "./db.handler.php";
     $searchKeyWord = mysqli_real_escape_string($conn, $_POST['searchKeyWord']);
     $result = "";
-    $sql_query = mysqli_query($conn, "SELECT * FROM users WHERE firstname LIKE '%{$searchKeyWord}%' OR surname LIKE '%{$searchKeyWord}%' OR username LIKE '%{$searchKeyWord}%'");
+    $sql_query = mysqli_query($conn, "SELECT * FROM users WHERE (firstname LIKE '%{$searchKeyWord}%' OR surname LIKE '%{$searchKeyWord}%' OR username LIKE '%{$searchKeyWord}%') ORDER BY userStatus DESC, username ASC, firstname ASC, surname ASC;");
     if (!(mysqli_num_rows($sql_query) > 0)) {
         $result .= "<p style='text-align: center;'>No users found!</p>";
     }

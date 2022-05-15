@@ -19,6 +19,16 @@ body {
   background-repeat: no-repeat;
 }
 
+img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -ms-user-drag: none;
+}
+
 /*  
             +-+-+-+- header (navbar menu) section -+-+-+-+  
 */
@@ -65,11 +75,18 @@ body {
   padding: 4em 0 3em;
 }
 
+.main-sec,
+.main-sec--chat {
+  word-break: break-all;
+  overflow-x: hidden;
+}
+
 .main-sec--chat,
 .main-sec__chat-container {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  background: $bg_clr;
 }
 
 .form-container {
@@ -255,6 +272,7 @@ h1.container__text--error {
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .menu__backwards-btn {
   color: $bg_clr;
@@ -348,6 +366,7 @@ h1.container__text--error {
   box-sizing: border-box;
   background-color: $bg_clr;
   z-index: 1;
+  box-shadow: 0px 0px 15px -4px #000;
   > .chat-message-form {
     display: flex;
     align-items: center;
@@ -387,28 +406,28 @@ h1.container__text--error {
   bottom: 0px;
   position: absolute;
   border: 1px solid;
-
-  border-top-color: transparent;
+  border-top-color: transparent !important;
 }
 
 .chat-box__message--incoming-msg {
   @extend %chat-box__message;
   align-self: flex-start;
-  background-color: $white_clr;
+  background-color: #d1d1d1;
   color: $fg_clr;
+  border-color: #666;
   .msg-box__span--corner {
     @extend %curvy-corner;
     left: -3px;
     border-radius: 10px 0px;
-    border-right-color: transparent;
+    border-right-color: transparent !important;
+    border-color: inherit;
   }
 }
 
 .chat-box__message--outgoing-msg {
   @extend %chat-box__message;
+  @include chat_outgoingMessage();
   align-self: flex-end;
-  background-color: $light_theme_clr;
-
   color: $bg_clr;
   .msg-box__span--corner {
     @extend %curvy-corner;
@@ -462,6 +481,27 @@ h1.container__text--error {
   color: #f5f532;
   opacity: 0.8;
   padding: 2em 5em;
+}
+
+.form__file-attachment-container {
+  line-height: 30px;
+  margin-left: 0.25em;
+  margin-right: 0.75em;
+  & > label {
+    display: inline-block;
+    transition: all 0.5s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.3);
+    }
+    & > .fa-solid {
+      padding-top: 7px;
+      font-size: 21px;
+    }
+  }
+  input[type="file"] {
+    display: none;
+  }
 }
 
 /*  

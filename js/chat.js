@@ -28,7 +28,7 @@ const sendBtn = form.querySelector(".send-btn");
 
   XMLreq();
   setTimeout(chatScroller, 200);
-  setInterval(XMLreq, 600);
+  // setInterval(XMLreq, 600);
 })();
 
 form.onsubmit = (event) => {

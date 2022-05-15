@@ -1,0 +1,6 @@
+@mixin chat_outgoingMessage() {
+  background: #4a569d;
+  background: -webkit-linear-gradient(to bottom, #dc2424, #4a569d);
+  background: linear-gradient(to bottom, #dc2424, #4a569d);
+  background-attachment: fixed;
+}
