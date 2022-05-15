@@ -115,11 +115,11 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  color: #f3ecff;
 }
 
 .header-sec__nav-bar > ul[class^="nav-bar__menu"] a {
   text-decoration: none;
-  color: #f3ecff;
 }
 
 .nav-bar__menu--user-account {
@@ -138,7 +138,6 @@ img {
 .main-sec,
 .main-sec--chat {
   word-break: break-all;
-  overflow-x: hidden;
 }
 
 .main-sec--chat,
@@ -393,6 +392,116 @@ h1.container__text--error {
 
 .menu__backwards-btn {
   color: #f3ecff;
+}
+
+.nav-bar-menu__account-settings {
+  color: #f3ecff;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transform: translateY(-5%);
+          transform: translateY(-5%);
+  top: 40px;
+  right: 0px;
+  z-index: 10;
+  background-color: #cbcdd3;
+  width: 35vw;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  -webkit-box-shadow: 0px 2px 15px 0px #000000;
+          box-shadow: 0px 2px 15px 0px #000000;
+  font-size: 1rem;
+  border-radius: 1.5%;
+  border-top: 5px solid #00ce56;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container:hover {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu,
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings-menu__heading--client-name {
+  padding: 1em;
+  margin: 0;
+  color: #000;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings-menu__heading--client-name {
+  padding: 1em;
+  text-align: center;
+  border-bottom: 1px solid #777;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu {
+  text-align: left;
+  list-style-type: none;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--logout,
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--edit-profile,
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--chats {
+  color: inherit;
+  padding: 1em 0.3em;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 5px;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--logout:hover,
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--edit-profile:hover,
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--chats:hover {
+  background-color: #f3ecff;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--logout > i,
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--edit-profile > i,
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__menu-container > .account-settings__menu .account-settings-menu__anchor--chats > i {
+  padding-left: 0.75em;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__caret-down-icon {
+  padding: 0.3em 0.5em;
+  font-size: 1.5rem;
+  cursor: pointer;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+}
+
+.nav-bar-menu__account-settings .account-settings-conatiner .account-settings__caret-down-icon:hover + .account-settings__menu-container {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transform: translate(0);
+          transform: translate(0);
 }
 
 .main-sec {

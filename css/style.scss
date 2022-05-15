@@ -57,9 +57,9 @@ img {
     list-style-type: none;
     display: flex;
     justify-content: space-between;
+    color: $bg_clr;
     a {
       text-decoration: none;
-      color: $bg_clr;
     }
   }
 }
@@ -78,7 +78,6 @@ img {
 .main-sec,
 .main-sec--chat {
   word-break: break-all;
-  overflow-x: hidden;
 }
 
 .main-sec--chat,
@@ -276,6 +275,84 @@ h1.container__text--error {
 }
 .menu__backwards-btn {
   color: $bg_clr;
+}
+
+.nav-bar-menu__account-settings {
+  color: $bg_clr;
+  .account-settings-conatiner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .account-settings__menu-container {
+      position: absolute;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-5%);
+      top: 40px;
+      right: 0px;
+      z-index: 10;
+      background-color: $gray_clr;
+      width: 35vw;
+      min-width: fit-content;
+      box-shadow: 0px 2px 15px 0px #000000;
+      font-size: 1rem;
+      border-radius: 1.5%;
+      border-top: 5px solid $secondary_clr;
+      transition: all 250ms;
+      &:hover {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0);
+      }
+
+      > .account-settings__menu,
+      > .account-settings-menu__heading--client-name {
+        padding: 1em;
+        margin: 0;
+        color: $fg_clr;
+      }
+      > .account-settings-menu__heading--client-name {
+        padding: 1em;
+        text-align: center;
+        border-bottom: 1px solid $dark_clr;
+      }
+      > .account-settings__menu {
+        text-align: left;
+        list-style-type: none;
+        .account-settings-menu__anchor--logout,
+        .account-settings-menu__anchor--edit-profile,
+        .account-settings-menu__anchor--chats {
+          color: inherit;
+          padding: 1em 0.3em;
+          width: 100%;
+          display: flex;
+          box-sizing: border-box;
+          justify-content: space-between;
+          align-items: center;
+          border-radius: 5px;
+          &:hover {
+            background-color: $white_clr;
+          }
+          > i {
+            padding-left: 0.75em;
+          }
+        }
+      }
+    }
+    .account-settings__caret-down-icon {
+      padding: 0.3em 0.5em;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: all 250ms;
+
+      &:hover + .account-settings__menu-container {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(0);
+      }
+    }
+  }
 }
 
 // main section
