@@ -8,6 +8,9 @@
         header("Location: ./home.php");
         exit();
     }
+    if (isset($_GET['user_id'])) {
+        unset($_GET['user_id']);
+    }
 
     define("active-user-header_comp__access",1);
     define("users-table_comp__access",1);

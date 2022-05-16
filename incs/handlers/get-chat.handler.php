@@ -43,7 +43,7 @@
                 $result .= 
                 '
                     <div class="chat-box__message--outgoing-msg">
-                        ' . $messages["message"] . '
+                        ' . str_replace('\r\n','<br \>',$messages["message"]) . '
                         <span class="msg-box__span--corner"> </span>
                     </div>
                 ';
@@ -55,7 +55,7 @@
                     <div class="chat-box__incoming-msg-container">
                         <img src="./assets/images/' . $userProfilePic . '" alt="Profile image" class="user-info__profile-pic">                            
                         <div class="chat-box__message--incoming-msg">
-                            ' . $messages["message"] . '
+                            ' . str_replace('\r\n','<br \>',$messages["message"]) . '
                             <span class="msg-box__span--corner"> </span>
                         </div>
                     </div>

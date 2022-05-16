@@ -47,7 +47,7 @@
                     </label>
                 </div>
                 <div class="form__msg-bar">
-                    <input type="text" name="message" placeholder="Message">
+                    <textarea name="message" placeholder="message"></textarea>
                 </div>
     
                 <div class="form__send-btn-container" >

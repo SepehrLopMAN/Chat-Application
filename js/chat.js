@@ -20,27 +20,16 @@ const sendBtn = form.querySelector(".send-btn");
     let formData = new FormData(form);
     formData.append("user_id", window.location.href.split("?user_id=")[1]);
     XmlHttpReq.send(formData);
-
-    if (!$(".chat-box").parent().hasClass("active")) {
-      chatScroller();
-    }
   }
 
   XMLreq();
   setTimeout(chatScroller, 200);
-  // setInterval(XMLreq, 600);
+  setInterval(XMLreq, 600);
 })();
 
 form.onsubmit = (event) => {
   event.preventDefault();
 };
-$(".chat-box").mouseenter(() => {
-  $(".chat-box").parent().addClass("active");
-});
-
-$(".chat-box").mouseleave(() => {
-  $(".chat-box").parent().removeClass("active");
-});
 
 sendBtn.onclick = (event) => {
   let XmlHttpReq = new XMLHttpRequest();
@@ -69,4 +58,3 @@ function chatScroller() {
     400
   );
 }
-msgInput.onfocus = msgInput.onclick = chatScroller;

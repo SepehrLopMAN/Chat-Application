@@ -5,10 +5,9 @@
   height: 4px;
 }
 ::-webkit-scrollbar-thumb {
-  background: #004bff;
-
+  background: $bold_theme_clr;
   &:hover {
-    background-color: #004cff90;
+    background: $bold_theme_clr;
   }
 }
 

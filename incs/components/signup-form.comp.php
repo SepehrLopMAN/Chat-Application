@@ -64,7 +64,7 @@
                <label>
                    <input name="re-password" type="password" required>
                 <span>
-                    Repeat Password
+                    Confirm Password
                 </span>
                 </label>
              <i class="fas fa-eye-slash" onclick="pwdToggle(this)"></i>

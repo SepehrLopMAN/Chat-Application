@@ -1,7 +1,7 @@
 @import "./modules/index";
 
 html {
-  min-width: 350px;
+  min-width: 365px;
   min-height: 600px;
   background-color: $bold_theme_clr;
 }
@@ -38,6 +38,8 @@ img {
   background-color: $bold_theme_clr;
   font-size: 1.125rem;
   border-radius: 0 0 10px 10px;
+  box-shadow: 0px 0px 20px 0px rgba($color: $black_clr, $alpha: 0.5);
+  border-bottom: 1px solid $bg_clr;
 }
 
 .header-sec--chat {
@@ -57,12 +59,13 @@ img {
     list-style-type: none;
     display: flex;
     justify-content: space-between;
-    color: $bg_clr;
     a {
+      color: $bg_clr;
       text-decoration: none;
     }
   }
 }
+
 .nav-bar__menu--user-account {
   flex: 0 1 150px;
 }
@@ -73,11 +76,6 @@ img {
 
 .main-sec {
   padding: 4em 0 3em;
-}
-
-.main-sec,
-.main-sec--chat {
-  word-break: break-all;
 }
 
 .main-sec--chat,
@@ -109,11 +107,15 @@ img {
   justify-content: center;
   align-items: center;
 }
-.form__form-input {
+%form__form-input {
   position: relative;
   width: 70%;
   font-size: 1.25em;
+}
+.form__form-input {
+  @extend %form__form-input;
   input,
+  textarea,
   span {
     color: $fg_clr;
   }
@@ -124,7 +126,8 @@ img {
     left: 0;
     transition: all 0.5s ease-in-out;
   }
-  input {
+  input,
+  textarea {
     border: 0;
     border-bottom: 1px solid $dark_inactive_clr;
     background: transparent;
@@ -180,6 +183,7 @@ img {
   text-transform: uppercase;
   background-color: $light_theme_clr;
   border: 0;
+  color: $white_clr;
   border-radius: 0.375em;
   cursor: pointer;
   width: 70%;
@@ -214,6 +218,7 @@ h1.container__text--error {
 }
 
 .form__form-input--profile-pic {
+  @extend %form__form-input;
   input {
     display: block;
     margin-top: 0.75em;
@@ -292,18 +297,22 @@ h1.container__text--error {
       top: 40px;
       right: 0px;
       z-index: 10;
-      background-color: $gray_clr;
+      background-color: #e5e5e5;
       width: 35vw;
       min-width: fit-content;
-      box-shadow: 0px 2px 15px 0px #000000;
+      box-shadow: 0px 2px 15px 0px $black_clr;
       font-size: 1rem;
       border-radius: 1.5%;
-      border-top: 5px solid $secondary_clr;
+      border-top: 5px solid $success_clr;
       transition: all 250ms;
       &:hover {
         visibility: visible;
         opacity: 1;
         transform: translate(0);
+      }
+
+      > .account-settings__menu {
+        min-width: 160px;
       }
 
       > .account-settings__menu,
@@ -332,7 +341,7 @@ h1.container__text--error {
           align-items: center;
           border-radius: 5px;
           &:hover {
-            background-color: $white_clr;
+            background-color: #bdbdbd;
           }
           > i {
             padding-left: 0.75em;
@@ -362,7 +371,7 @@ h1.container__text--error {
   padding: 1em;
   flex-grow: 1;
 }
-.main-sec__users-container {
+.main-sec__container {
   border: 1px solid $light_theme_clr;
   background-color: $bg_clr;
   box-shadow: 1px 1px 15px 0px $bg_clr;
@@ -455,6 +464,7 @@ h1.container__text--error {
   flex-direction: column-reverse;
   padding: 0 0.5em 0.5em;
   flex-grow: 1;
+  word-break: break-all;
 }
 
 .chat-box__incoming-msg-container {
@@ -467,7 +477,7 @@ h1.container__text--error {
 %chat-box__message {
   position: relative;
   padding: 1em;
-  max-width: 65%;
+  max-width: 80%;
   box-sizing: border-box;
   box-shadow: 0px 0px 15px -4px $black_clr;
   margin: 0.5em 0 0.5em 0.5em;
@@ -517,6 +527,9 @@ h1.container__text--error {
 .form__msg-bar {
   @extend .form__form-input;
   flex-grow: 1;
+  textarea {
+    resize: none;
+  }
 }
 
 .form__send-btn-container {
@@ -581,6 +594,112 @@ h1.container__text--error {
   }
 }
 
+//  profile page
+
+.profile-pic-attachment {
+  input[type="file"] {
+    display: none;
+  }
+}
+
+.profile-pic-container {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+  border: 3px double $bold_theme_clr;
+  border-radius: 50%;
+  position: relative;
+  background-color: inherit;
+  img {
+    width: 100%;
+    opacity: 1;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+}
+
+.profile-pic-container--editable {
+  @extend .profile-pic-container;
+  cursor: pointer;
+  &::before {
+    content: "Edit";
+    position: absolute;
+    display: block;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    border-radius: 50%;
+    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 10;
+    transition: all 300ms;
+  }
+  &:hover {
+    &::before {
+      transition: all 300ms;
+      opacity: 1;
+    }
+    & img {
+      transition: all 300ms;
+      opacity: 0.3;
+    }
+  }
+}
+
+.form__unchangable-info-container {
+  @extend %form__form-input;
+  display: flex;
+  flex-direction: column;
+  > .profile-form__user-name,
+  > .profile-form__user-status {
+    flex: 1 1;
+    padding: 0.5em 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+  > .profile-form__user-name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
+
+.profile-form__btn-container {
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  flex-wrap: wrap;
+  > div {
+    position: relative;
+    flex: 1 1 200px;
+    color: $bg_clr;
+  }
+  .form__form-input--submit {
+    color: inherit;
+    width: 100%;
+    text-align: left;
+    padding: 1em;
+  }
+  i {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: inherit;
+    line-height: 41px;
+    margin: 0 1em;
+    font-size: 1em;
+    pointer-events: none;
+  }
+}
+
+.red-btn {
+  background-color: $error_clr !important;
+  color: $black_clr !important;
+}
+
 /*  
             +-+-+-+- footer section -+-+-+-+  
 */
@@ -591,6 +710,8 @@ h1.container__text--error {
   box-sizing: border-box;
   background-color: $bold_theme_clr;
   border-radius: 10px 10px 0 0;
+  box-shadow: 0px 0px 20px 0px rgba($color: $black_clr, $alpha: 0.5);
+  border-top: 1px solid $bg_clr;
   .footer-sec__paragraph--copy-right {
     color: $bg_clr;
     text-align: center;

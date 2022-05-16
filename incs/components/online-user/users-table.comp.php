@@ -9,7 +9,7 @@
 ?>
 
 <main class="main-sec">
-        <div class="main-sec__users-container">
+        <div class="main-sec__container">
             <div class="search-bar-input">
                 <label>
                     <input type="search" name="search" placeholder="Select a user to chat with" autocomplete="off">

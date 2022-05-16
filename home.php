@@ -2,7 +2,12 @@
  <?php
 
     // include_once '\addons/beta/chat_app/auth/access-auth.php';
-
+    
+    session_start();
+    if (isset($_SESSION['uid'])) {
+        header("Location: ./users.php");
+        exit();
+    }
     define("footer_comp__access",1);
     define("header_comp__access",1);
  ?>
