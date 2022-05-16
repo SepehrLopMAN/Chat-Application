@@ -1,7 +1,7 @@
 <?php 
 
     // include_once '\addons/beta/chat_app/auth/access-auth.php';
-
+    
     if (!defined("active-user-header_comp__access")) {
         header("Location: ../../../users.php");
         exit();
@@ -81,7 +81,7 @@
                             <a href="./users.php" class="account-settings-menu__anchor--chats">Chats & Users <i class="fa-solid fa-users"></i></a>
                         </li>
                         <li>
-                            <a href="./profile.php?user_id=<?php echo $userInfo['user_id']; ?>" class="account-settings-menu__anchor--edit-profile">Edit profile <i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="./profile.php" class="account-settings-menu__anchor--edit-profile">Edit profile <i class="fa-solid fa-pen-to-square"></i></a>
                         </li>
                         <li>
                             <a href="./incs/handlers/logout.handler.php" class="account-settings-menu__anchor--logout">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></a>

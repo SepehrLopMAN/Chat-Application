@@ -540,6 +540,10 @@ h1.container__text--error {
   margin: auto auto;
 }
 
+.main-sec__container > .form__unchangable-info-container {
+  margin: 1em 0;
+}
+
 .main-sec__chat-container--err-msg {
   position: relative;
   background: #f3ecff;
@@ -859,6 +863,7 @@ h1.container__text--error {
 }
 
 .form__unchangable-info-container {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -871,8 +876,8 @@ h1.container__text--error {
 .form__unchangable-info-container > .profile-form__user-name,
 .form__unchangable-info-container > .profile-form__user-status {
   -webkit-box-flex: 1;
-      -ms-flex: 1 1;
-          flex: 1 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
   padding: 0.5em 0;
   text-align: center;
   font-size: 1rem;
@@ -899,24 +904,36 @@ h1.container__text--error {
       -ms-flex: 1 1 200px;
           flex: 1 1 200px;
   color: #f3ecff;
+  display: block;
 }
 
-.profile-form__btn-container .form__form-input--submit {
+.profile-form__btn-container > div > .form__form-input--submit {
   color: inherit;
   width: 100%;
   text-align: left;
   padding: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 1rem;
 }
 
-.profile-form__btn-container i {
+.profile-form__btn-container > div > a.form__form-input--submit {
+  text-decoration: none;
+}
+
+.profile-form__btn-container > div i {
   position: absolute;
   top: 0;
   right: 0;
   color: inherit;
-  line-height: 41px;
+  line-height: 3.125rem;
   margin: 0 1em;
   font-size: 1em;
   pointer-events: none;
+}
+
+.profile-form__btn-container > div > a {
+  display: block;
 }
 
 .red-btn {

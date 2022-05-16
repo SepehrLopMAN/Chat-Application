@@ -4,5 +4,16 @@ assets/images/
 # Ignoring mailer files (Temporary)
 mailer/
 
+<<<<<<< HEAD
+# Ignoring db connection file
+incs/handlers/db.handler.php
+=======
+<<<<<<< HEAD
+# Ignoring db connection file
+incs/handlers/db.handler.php
+=======
+>>>>>>> 84bc977 (Chat system (Closed BETA V0.2.3.1))
+>>>>>>> 23c1ff2 (Chat system (Closed BETA V0.2.3.1))
+
 # Ignoring server tests file for websocket
 test.php

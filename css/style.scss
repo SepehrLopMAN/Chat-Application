@@ -378,6 +378,9 @@ h1.container__text--error {
   border-radius: 10px;
   padding: 1em;
   margin: auto auto;
+  > .form__unchangable-info-container {
+    margin: 1em 0;
+  }
 }
 .main-sec__chat-container--err-msg {
   position: relative;
@@ -652,11 +655,12 @@ h1.container__text--error {
 
 .form__unchangable-info-container {
   @extend %form__form-input;
+  width: 100%;
   display: flex;
   flex-direction: column;
   > .profile-form__user-name,
   > .profile-form__user-status {
-    flex: 1 1;
+    flex: 1 1 auto;
     padding: 0.5em 0;
     text-align: center;
     font-size: 1rem;
@@ -672,26 +676,36 @@ h1.container__text--error {
   display: flex;
   gap: 1em;
   flex-wrap: wrap;
+
   > div {
     position: relative;
     flex: 1 1 200px;
     color: $bg_clr;
-  }
-  .form__form-input--submit {
-    color: inherit;
-    width: 100%;
-    text-align: left;
-    padding: 1em;
-  }
-  i {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: inherit;
-    line-height: 41px;
-    margin: 0 1em;
-    font-size: 1em;
-    pointer-events: none;
+    display: block;
+    > .form__form-input--submit {
+      color: inherit;
+      width: 100%;
+      text-align: left;
+      padding: 1em;
+      box-sizing: border-box;
+      font-size: 1rem;
+    }
+    > a.form__form-input--submit {
+      text-decoration: none;
+    }
+    i {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: inherit;
+      line-height: 3.125rem;
+      margin: 0 1em;
+      font-size: 1em;
+      pointer-events: none;
+    }
+    > a {
+      display: block;
+    }
   }
 }
 
