@@ -696,7 +696,7 @@ h1.container__text--error {
 .chat-box__message--incoming-msg {
   -ms-flex-item-align: start;
       align-self: flex-start;
-  background-color: #d1d1d1;
+  background-color: #fff;
   color: #000;
   border-color: #666;
 }

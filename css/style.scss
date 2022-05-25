@@ -502,7 +502,7 @@ h1.container__text--error {
 .chat-box__message--incoming-msg {
   @extend %chat-box__message;
   align-self: flex-start;
-  background-color: #d1d1d1;
+  background-color: #fff;
   color: $fg_clr;
   border-color: #666;
   .msg-box__span--corner {
